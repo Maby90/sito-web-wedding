@@ -187,12 +187,24 @@ a {
     width: 90%;
     margin-bottom: 2rem;
     animation: float 6s ease-in-out infinite;
+    /* Give the overall shape a subtle shadow */
+    filter: drop-shadow(0 15px 25px rgba(248, 76, 105, 0.15));
 }
 
 .hero-img {
     width: 100%;
     height: auto;
-    object-fit: contain;
+    object-fit: cover;
+}
+
+/* Crop the generated image into a beautiful circle, zooming in on the couple */
+.cropped-hero {
+    border-radius: 50%;
+    aspect-ratio: 1 / 1; 
+    object-fit: cover;
+    object-position: center 20%; /* Shift focus up slightly to avoid bottom text */
+    border: 12px solid var(--light-bg);
+    box-shadow: 0 0 0 4px var(--secondary-color);
 }
 
 @keyframes float {
@@ -274,25 +286,17 @@ a {
     position: relative;
 }
 
-.location-box {
-    background-color: var(--light-bg);
+.location-img {
+    width: 100%;
+    height: auto;
     border-radius: 20px;
-    padding: 3rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    text-align: center;
-    border: 3px dashed var(--secondary-color);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    transform: rotate(2deg);
+    transition: transform 0.3s ease;
 }
 
-.map-placeholder span {
-    font-size: 4rem;
-    display: block;
-    margin-bottom: 1rem;
-}
-
-.map-placeholder p {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: var(--primary-color);
+.location-img:hover {
+    transform: rotate(0deg) scale(1.02);
 }
 
 /* Dress Code Section */
