@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&I - 5 Settembre 2026</title>
+    <meta name="description" content="Sito d'invito per il matrimonio del 5 Settembre 2026.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Montserrat:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">M&amp;I</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#dresscode">Dress Code</a></li>
+                <li><a href="#rsvp">RSVP</a></li>
+                <li><a href="#riservata" class="secret-link">Area Riservata</a></li>
+            </ul>
+        </nav>
+        <!-- Mobile Menu Toggle -->
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-image-container">
+            <img src="Gemini_Generated_Image_8nx5648nx5648nx5.png" alt="Disegno degli Sposi" class="hero-img">
+        </div>
+        <div class="hero-content">
+            <h1 class="date">5 Settembre 2026</h1>
+            <div class="divider"></div>
+            <p class="welcome-text">Benvenuti sul sito del nostro matrimonio! Siamo così felici di vedervi qui. Se non avete ancora confermato la vostra presenza, cliccate sul bottone qui sotto o scorrete per scoprire tutti i dettagli.</p>
+            <a href="#rsvp" class="btn-primary" id="hero-rsvp-btn">Clicca qui per l'RSVP!</a>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="section-container">
+        <h2 class="section-title">Dove festeggiamo?</h2>
+        <div class="section-content split">
+            <div class="text-box">
+                <h3>Villa Le Sorti</h3>
+                <p class="address">Via del Pollaiolo, 21, 50055 Marliano FI</p>
+                
+                <h4 class="sub-heading">Come raggiungerci 🚗</h4>
+                <p>La location è immersa nel verde, quindi <strong>è indispensabile l'automobile</strong> per poterla raggiungere comodamente.</p>
+                <ul class="transport-list">
+                    <li>✈️ L'aeroporto più vicino è quello di <strong>Firenze</strong>.</li>
+                    <li>🚆 La stazione ferroviaria principale più vicina è <strong>Firenze Santa Maria Novella</strong>.</li>
+                </ul>
+                <a href="https://maps.app.goo.gl/3Hh3G3C3H3G3C3H3" target="_blank" class="btn-outline">Apri su Google Maps</a>
+            </div>
+            <div class="image-box location-box">
+                <!-- Decorative element or map placeholder -->
+                <div class="map-placeholder">
+                    <span>📍</span>
+                    <p>Villa Le Sorti</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section id="dresscode" class="section-container alt-bg">
+        <h2 class="section-title">Dress Code e Vibe</h2>
+        <div class="section-content centered-text">
+            <p class="fun-text">Ricicla quel vestito che hai usato al matrimonio della cugina di zia Rosa! 👗👔</p>
+            <p>Vestiti elegantissimo se ti va, oppure vieni in ciabatte e pigiama... l'importante è che tu sia a tuo agio.<br>
+            Ricicla più che puoi, l'ambiente te ne sarà grato e a noi interessa solo che <strong>tu sia con noi a fare festa</strong>! 🎉</p>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="section-container">
+        <h2 class="section-title">Ci sarai vero?</h2>
+        <div class="section-content">
+            <form action="https://formsubmit.co/mprochilo90@gmail.com" method="POST" class="rsvp-form" id="rsvpForm">
+                <!-- CC to second email -->
+                <input type="hidden" name="_cc" value="ila.morda@gmail.com">
+                <input type="hidden" name="_subject" value="Nuova risposta RSVP Matrimonio!">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div class="form-group">
+                    <label for="name">Nome e Cognome</label>
+                    <input type="text" id="name" name="Nomi" placeholder="Es. Mario e Giulia Rossi" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="attendance">Parteciperai?</label>
+                    <select id="attendance" name="Partecipazione" required>
+                        <option value="" disabled selected>Scegli un'opzione</option>
+                        <option value="Sì, non vedo l'ora!">Sì, ci sarò assolutamente!</option>
+                        <option value="No, purtroppo non potrò esserci">No, purtroppo non potrò esserci :(</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="guests">Numero di persone (inclusi bambini)</label>
+                    <input type="number" id="guests" name="Numero_Persone" min="1" max="10" placeholder="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="allergies">Intolleranze, allergie o diete speciali?</label>
+                    <textarea id="allergies" name="Intolleranze" rows="3" placeholder="Nessuna intolleranza, oppure vegano/celiaco... Facci sapere!"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary submit-btn">Invia RSVP 💌</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Con amore, gli Sposi 💍 5 Settembre 2026</p>
+        <p><a href="#" id="openModalBtn" class="footer-link">Accesso Area Riservata</a></p>
+    </footer>
+
+    <!-- Password Modal -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 class="modal-title">Area Riservata</h3>
+            <p>Inserisci la password magica per accedere ai dettagli speciali.</p>
+            <div class="password-group">
+                <input type="password" id="modalPasswordInput" placeholder="La password segreta...">
+                <button id="modalSubmitPassword" class="btn-primary">Entra 🗝️</button>
+            </div>
+            <p id="modalPasswordError" class="error-msg"></p>
+        </div>
+    </div>
+
+    <!-- Reserved Area (Hidden by default) -->
+    <div id="reservedSectionOverlay" class="reserved-overlay">
+        <div class="reserved-content">
+            <button class="close-reserved-btn" id="closeReservedBtn">&times;</button>
+            <h2 class="section-title secret-title">Benvenuto nell'Area Segreta! 🤫</h2>
+            <div class="secret-box">
+                <p class="greeting">Ciao! Come da invito, ti avevamo promesso che saresti stato nostro ospite per la notte del <strong>5 settembre 2026</strong>. Qui di seguito trovi i dettagli della struttura dove alloggerai:</p>
+                
+                <div class="hotel-details">
+                    <h3>🏕️ hu Firenze camping in town</h3>
+                    <p class="address">Via Generale C. A. dalla Chiesa, 1/3, 50136 Firenze FI</p>
+                    
+                    <ul class="hotel-rules">
+                        <li>🕒 <strong>Check-in:</strong> a partire dalle 15.00</li>
+                        <li>🥐 <strong>Colazione:</strong> Inclusa!</li>
+                    </ul>
+                </div>
+
+                <div class="hotel-warning">
+                    <p>⚠️ <strong>Attenzione logistica:</strong> Anche per raggiungere la location del matrimonio dal camping è <strong>necessaria la macchina</strong>. Ci vogliono circa 40 minuti.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
