@@ -102,4 +102,24 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'auto'; // Restore background scrolling
     });
 
+    // --- Intersection Observer for Scroll Animations ---
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // Trigger when 15% of the element is visible
+    };
+
+    const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, observerOptions);
+
+    // Select all elements with the animate-on-scroll class and observe them
+    document.querySelectorAll('.animate-on-scroll').forEach(element => {
+        scrollObserver.observe(element);
+    });
+
 });
