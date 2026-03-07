@@ -1,0 +1,228 @@
+/* CSS for the Elegant Digital Invitation */
+
+:root {
+    --text-color: #8A8E6A; /* Olive green from the invitation text */
+    --accent-color: #d8c3a5; /* Warm secondary tone for buttons/accents if needed */
+    --bg-color: #FCFCFA; /* Very light ivory/warm white background */
+    --font-formal: 'Cormorant Garamond', serif;
+    --font-script: 'Great Vibes', cursive;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-formal);
+    overflow-x: hidden;
+}
+
+/* --- OVERLAYS FOR EXTRACTED FLOWERS --- */
+.floral-overlay {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Based on user image 1 (has flowers on top right and bottom right) */
+.floral-top-right {
+    top: -20px;
+    right: -20px;
+    width: 300px;
+    height: 350px;
+    background-image: url('flowers_1.png');
+    background-position: top right;
+    animation: sway 15s ease-in-out infinite alternate;
+}
+
+/* Based on user image 2 (has flowers bottom right and some left) */
+.floral-bottom-left {
+    bottom: -20px;
+    left: -20px;
+    width: 250px;
+    height: 300px;
+    background-image: url('flowers_2.png');
+    background-position: bottom left;
+    transform: scaleX(-1); /* Mirror it to fit the left side nicely if extracted from right */
+    animation: sway 12s ease-in-out infinite alternate-reverse;
+}
+
+.floral-bottom-right {
+    bottom: -10px;
+    right: -10px;
+    width: 350px;
+    height: 350px;
+    background-image: url('flowers_2.png');
+    background-position: bottom right;
+    animation: sway 18s ease-in-out infinite alternate;
+}
+
+@keyframes sway {
+    0% { transform: rotate(0deg) scale(1.0); }
+    100% { transform: rotate(2deg) scale(1.02); }
+}
+
+/* --- MAIN CONTENT & TYPOGRAPHY --- */
+.invitation-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.invitation-content {
+    background: rgba(252, 252, 250, 0.85); /* Semi-transparent white to ensure text readability over straggling flowers */
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(138, 142, 106, 0.05); /* very soft shadow */
+}
+
+/* Text Styling based on invitation */
+.subtitle {
+    font-size: 1.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.names {
+    font-family: var(--font-script);
+    font-size: 5rem;
+    font-weight: 400;
+    margin: 1rem 0 3rem 0;
+    color: #6C724F; /* slightly darker olive for the names to pop */
+}
+
+.date-time {
+    margin-bottom: 3rem;
+}
+
+.date-time .date {
+    font-size: 1.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.date-time .time {
+    font-size: 1.6rem;
+    letter-spacing: 0.5em; /* Match the very spaced out time in the image */
+}
+
+.location-box {
+    margin-bottom: 4rem;
+    line-height: 1.8;
+}
+
+.location-intro {
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.location-name {
+    font-size: 1.4rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0.5rem 0;
+}
+
+.location-address {
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 0;
+}
+
+.rsvp-text {
+    font-size: 1.2rem;
+    letter-spacing: 0.4em;
+    margin-top: 2rem;
+}
+
+/* CTA Button to Main Website */
+.cta-container {
+    margin-top: 4rem;
+}
+
+.btn-elegant {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 1px solid var(--text-color);
+    background: transparent;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    border-radius: 4px; /* subtle curve */
+}
+
+.btn-elegant:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+    box-shadow: 0 5px 15px rgba(138, 142, 106, 0.2);
+    transform: translateY(-2px);
+}
+
+/* --- ANIMATIONS --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger the animations so text appears line by line elegantly */
+.step-1 { animation-delay: 0.5s; }
+.step-2 { animation-delay: 1.5s; }
+.step-3 { animation-delay: 2.5s; }
+.step-4 { animation-delay: 3.5s; }
+.step-5 { animation-delay: 5s; }
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .names {
+        font-size: 3.5rem;
+    }
+    .date-time .date {
+        font-size: 1.2rem;
+        letter-spacing: 0.2em;
+    }
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    .floral-top-right {
+        width: 150px;
+        height: 200px;
+        opacity: 0.6;
+    }
+    .floral-bottom-right, .floral-bottom-left {
+        width: 200px;
+        height: 200px;
+        opacity: 0.6;
+    }
+    .btn-elegant {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
