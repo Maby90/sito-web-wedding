@@ -30,35 +30,35 @@ body, html {
     background-repeat: no-repeat;
 }
 
-/* Based on user image 1 (has flowers on top right and bottom right) */
+/* Based on user image 1 */
 .floral-top-right {
     top: -5vh;
     right: -5vw;
-    width: 55vmin;
-    height: 65vmin;
-    background-image: url('flowers_1.png');
+    width: 50vw;
+    height: 40vh;
+    background-image: url('/invito/flower_tr.png');
     background-position: top right;
     animation: sway 15s ease-in-out infinite alternate;
 }
 
-/* Based on user image 2 (has flowers bottom right and some left) */
+/* Based on user image 2 left side */
 .floral-bottom-left {
     bottom: -5vh;
     left: -5vw;
-    width: 50vmin;
-    height: 55vmin;
-    background-image: url('flowers_2.png');
+    width: 40vw;
+    height: 35vh;
+    background-image: url('/invito/flower_bl.png');
     background-position: bottom left;
-    transform: scaleX(-1); /* Mirror it to fit the left side nicely if extracted from right */
     animation: sway 12s ease-in-out infinite alternate-reverse;
 }
 
+/* Based on user image 2 right side */
 .floral-bottom-right {
     bottom: -5vh;
     right: -5vw;
-    width: 60vmin;
-    height: 65vmin;
-    background-image: url('flowers_2.png');
+    width: 55vw;
+    height: 45vh;
+    background-image: url('/invito/flower_br.png');
     background-position: bottom right;
     animation: sway 18s ease-in-out infinite alternate;
 }
