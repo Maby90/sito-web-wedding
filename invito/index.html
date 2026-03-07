@@ -12,36 +12,67 @@
 </head>
 <body>
 
-    <!-- Floral border overlays extracted from user's original invitation -->
+    <!-- Floral border overlays (fixed to viewport) -->
     <div class="floral-overlay floral-top-right"></div>
     <div class="floral-overlay floral-bottom-right"></div>
     <div class="floral-overlay floral-bottom-left"></div>
 
-    <div class="invitation-wrapper">
-        <div class="invitation-content">
-            
-            <p class="fade-in step-1 subtitle">Ci sposiamo!</p>
-            
-            <h1 class="fade-in step-2 names">Ilaria e Maby</h1>
-            
-            <div class="fade-in step-3 date-time">
-                <p class="date">Sabato 5 Settembre 2026</p>
-                <p class="time">17:30</p>
-            </div>
-            
-            <div class="fade-in step-4 location-box">
-                <p class="location-intro">Saremo felici di avervi con noi presso:</p>
-                <p class="location-name">Villa Le Sorti</p>
-                <p class="location-address">Via del Pollaiolo 21, Lastra a Signa (FI)</p>
-                <p class="rsvp-text">R. S. V. P.</p>
-            </div>
+    <div class="screens-container">
+        
+        <!-- Screen 1: Main Invitation -->
+        <div class="invitation-screen" id="screen-1">
+            <div class="invitation-content">
+                <p class="fade-in step-1 subtitle">Ci sposiamo!</p>
+                
+                <h1 class="fade-in step-2 names">Ilaria e Maby</h1>
+                
+                <div class="fade-in step-3 date-time">
+                    <p class="date">Sabato 5 Settembre 2026</p>
+                    <p class="time">17:30</p>
+                </div>
+                
+                <div class="fade-in step-4 location-box">
+                    <p class="location-intro">Saremo felici di avervi con noi presso:</p>
+                    <p class="location-name">Villa Le Sorti</p>
+                    <p class="location-address">Via del Pollaiolo 21, Lastra a Signa (FI)</p>
+                    <p class="rsvp-text">R. S. V. P.</p>
+                </div>
 
-            <div class="fade-in step-5 cta-container">
-                <a href="/" class="btn-elegant">Scopri tutti i dettagli sul nostro sito</a>
+                <div class="fade-in step-5 scroll-indicator bounce">
+                    <p>Scorri</p>
+                    <span>↓</span>
+                </div>
             </div>
-
         </div>
+
+        <!-- Screen 2: IBAN & Details -->
+        <div class="invitation-screen" id="screen-2">
+            <div class="invitation-content second-content">
+                <p class="fade-in-scroll subtitle-large">Ci basta avervi con noi per essere felici.</p>
+                
+                <p class="fade-in-scroll paragraph-elegant">Se però volete darci una mano a partire<br>per la nostra prossima avventura:</p>
+                
+                <p class="fade-in-scroll iban-text">IBAN: IT76M0538738012000003981270</p>
+                
+                <div class="fade-in-scroll cta-container">
+                    <a href="/" class="btn-elegant">Scopri tutti i dettagli sul nostro sito</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 
+    <script>
+        // IntersectionObserver to trigger animations on scroll for screen 2
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.fade-in-scroll').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>

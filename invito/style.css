@@ -18,6 +18,7 @@ body, html {
     font-family: var(--font-formal);
     font-weight: 300;
     overflow-x: hidden;
+    overflow-y: hidden; /* Hide the main body scrollbar, we will scroll the container */
 }
 
 /* --- OVERLAYS FOR EXTRACTED FLOWERS --- */
@@ -31,10 +32,10 @@ body, html {
 
 /* Based on user image 1 (has flowers on top right and bottom right) */
 .floral-top-right {
-    top: -20px;
-    right: -20px;
-    width: 300px;
-    height: 350px;
+    top: -5vh;
+    right: -5vw;
+    width: 55vmin;
+    height: 65vmin;
     background-image: url('flowers_1.png');
     background-position: top right;
     animation: sway 15s ease-in-out infinite alternate;
@@ -42,10 +43,10 @@ body, html {
 
 /* Based on user image 2 (has flowers bottom right and some left) */
 .floral-bottom-left {
-    bottom: -20px;
-    left: -20px;
-    width: 250px;
-    height: 300px;
+    bottom: -5vh;
+    left: -5vw;
+    width: 50vmin;
+    height: 55vmin;
     background-image: url('flowers_2.png');
     background-position: bottom left;
     transform: scaleX(-1); /* Mirror it to fit the left side nicely if extracted from right */
@@ -53,10 +54,10 @@ body, html {
 }
 
 .floral-bottom-right {
-    bottom: -10px;
-    right: -10px;
-    width: 350px;
-    height: 350px;
+    bottom: -5vh;
+    right: -5vw;
+    width: 60vmin;
+    height: 65vmin;
     background-image: url('flowers_2.png');
     background-position: bottom right;
     animation: sway 18s ease-in-out infinite alternate;
@@ -68,23 +69,33 @@ body, html {
 }
 
 /* --- MAIN CONTENT & TYPOGRAPHY --- */
-.invitation-wrapper {
+.screens-container {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
     position: relative;
     z-index: 10;
+}
+
+.invitation-screen {
     width: 100%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    scroll-snap-align: start;
+    position: relative;
 }
 
 .invitation-content {
-    background: rgba(252, 252, 250, 0.85); /* Semi-transparent white to ensure text readability over straggling flowers */
+    background: rgba(255, 255, 255, 0.85); /* Semi-transparent white to ensure text readability over straggling flowers */
     padding: 40px;
     border-radius: 20px;
     max-width: 800px;
     text-align: center;
-    box-shadow: 0 0 40px rgba(138, 142, 106, 0.05); /* very soft shadow */
+    position: relative;
 }
 
 /* Text Styling based on invitation */
@@ -153,6 +164,69 @@ body, html {
     margin-top: 2rem;
 }
 
+/* Scroll indicator */
+.scroll-indicator {
+    margin-top: 3rem;
+    opacity: 0.7;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.scroll-indicator p {
+    margin-bottom: 5px;
+}
+
+.scroll-indicator span {
+    font-size: 1.5rem;
+    display: block;
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Second Screen Typography */
+.second-content {
+    max-width: 900px;
+}
+
+.subtitle-large {
+    font-size: 1.8rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.paragraph-elegant {
+    font-size: 1.3rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+}
+
+.iban-text {
+    font-size: 1.4rem;
+    letter-spacing: 0.35em;
+    font-weight: 500;
+    margin-bottom: 4rem;
+}
+
 /* CTA Button to Main Website */
 .cta-container {
     margin-top: 4rem;
@@ -184,6 +258,17 @@ body, html {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.fade-in-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.fade-in-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @keyframes fadeInUp {
