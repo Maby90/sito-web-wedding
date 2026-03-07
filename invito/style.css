@@ -1,11 +1,11 @@
 /* CSS for the Elegant Digital Invitation */
 
 :root {
-    --text-color: #7C7A6D; /* Brown/gray olive from the invitation text */
+    --text-color: #82886A; /* Olive green / taupe from the invitation paper */
     --accent-color: #d8c3a5; /* Warm secondary tone for buttons/accents if needed */
-    --bg-color: #FCFCFA; /* Very light ivory/warm white background */
+    --bg-color: #FFFFFF; /* Pure white background to match paper */
     --font-formal: 'Montserrat', sans-serif;
-    --font-script: 'Great Vibes', cursive;
+    --font-script: 'Pinyon Script', cursive;
 }
 
 body, html {
@@ -16,6 +16,7 @@ body, html {
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: var(--font-formal);
+    font-weight: 300;
     overflow-x: hidden;
 }
 
@@ -97,10 +98,10 @@ body, html {
 
 .names {
     font-family: var(--font-script);
-    font-size: 5rem;
+    font-size: 6.5rem;
     font-weight: 400;
-    margin: 1rem 0 3rem 0;
-    color: #DC7973; /* Warm reddish/pink from the user's main theme/flowers */
+    margin: 2rem 0 3.5rem 0;
+    color: var(--text-color); /* Same olive color as the rest of the text, just like the real paper invite */
 }
 
 .date-time {
@@ -108,11 +109,11 @@ body, html {
 }
 
 .date-time .date {
-    font-size: 1.8rem;
-    letter-spacing: 0.3em;
+    font-size: 1.5rem;
+    letter-spacing: 0.4em;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .date-time .time {
@@ -127,9 +128,9 @@ body, html {
 
 .location-intro {
     font-size: 1.1rem;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .location-name {
