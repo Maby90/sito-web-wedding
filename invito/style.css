@@ -1,10 +1,10 @@
 /* CSS for the Elegant Digital Invitation */
 
 :root {
-    --text-color: #8A8E6A; /* Olive green from the invitation text */
+    --text-color: #7C7A6D; /* Brown/gray olive from the invitation text */
     --accent-color: #d8c3a5; /* Warm secondary tone for buttons/accents if needed */
     --bg-color: #FCFCFA; /* Very light ivory/warm white background */
-    --font-formal: 'Cormorant Garamond', serif;
+    --font-formal: 'Montserrat', sans-serif;
     --font-script: 'Great Vibes', cursive;
 }
 
@@ -100,7 +100,7 @@ body, html {
     font-size: 5rem;
     font-weight: 400;
     margin: 1rem 0 3rem 0;
-    color: #6C724F; /* slightly darker olive for the names to pop */
+    color: #DC7973; /* Warm reddish/pink from the user's main theme/flowers */
 }
 
 .date-time {
