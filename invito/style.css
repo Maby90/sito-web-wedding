@@ -70,7 +70,7 @@ body, html {
 
 /* --- MAIN CONTENT & TYPOGRAPHY --- */
 .screens-container {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
@@ -81,12 +81,13 @@ body, html {
 
 .invitation-screen {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     scroll-snap-align: start;
     position: relative;
+    overflow: hidden; /* Prevent text leaking outside the screen boundary */
 }
 
 .invitation-content {
