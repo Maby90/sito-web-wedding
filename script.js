@@ -122,4 +122,25 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollObserver.observe(element);
     });
 
+    // --- Copy IBAN to Clipboard ---
+    const copyIbanBtn = document.getElementById('copyIbanBtn');
+    if(copyIbanBtn) {
+        copyIbanBtn.addEventListener('click', () => {
+            const ibanText = document.getElementById('ibanText').innerText;
+            navigator.clipboard.writeText(ibanText).then(() => {
+                const originalText = copyIbanBtn.innerHTML;
+                copyIbanBtn.innerHTML = 'Copiato! ✅';
+                copyIbanBtn.style.backgroundColor = '#4CAF50';
+                
+                setTimeout(() => {
+                    copyIbanBtn.innerHTML = originalText;
+                    copyIbanBtn.style.backgroundColor = ''; // Reverts to original CSS
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                copyIbanBtn.innerHTML = 'Errore ❌';
+            });
+        });
+    }
+
 });
