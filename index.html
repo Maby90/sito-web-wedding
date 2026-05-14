@@ -165,12 +165,9 @@
     <section id="rsvp" class="section-container">
         <h2 class="section-title animate-on-scroll">Ci sarai vero?</h2>
         <div class="section-content animate-on-scroll">
-            <form action="https://formsubmit.co/mprochilo90@gmail.com" method="POST" class="rsvp-form" id="rsvpForm">
-                <!-- CC to second email -->
-                <input type="hidden" name="_cc" value="ila.morda@gmail.com">
+            <form class="rsvp-form" id="rsvpForm">
                 <input type="hidden" name="_subject" value="Nuova risposta RSVP Matrimonio!">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_cc" value="ila.morda@gmail.com">
 
                 <div class="form-group">
                     <label for="name">Nome e Cognome</label>
@@ -197,6 +194,7 @@
                 </div>
 
                 <button type="submit" class="btn-primary submit-btn">Invia RSVP 💌</button>
+                <div id="rsvpMessage" style="display:none; margin-top:1rem; padding:1rem; border-radius:8px; text-align:center;"></div>
             </form>
         </div>
     </section>

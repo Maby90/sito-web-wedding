@@ -122,6 +122,48 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollObserver.observe(element);
     });
 
+    // --- RSVP Form Submission via Web3Forms ---
+    const rsvpForm = document.getElementById('rsvpForm');
+    const rsvpMessage = document.getElementById('rsvpMessage');
+
+    if (rsvpForm) {
+        rsvpForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = rsvpForm.querySelector('.submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Invio in corso...';
+
+            const formData = new FormData(rsvpForm);
+            const data = Object.fromEntries(formData);
+
+            try {
+                const res = await fetch('https://formspree.io/f/mvzljkzw', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const json = await res.json();
+                if (json.ok) {
+                    rsvpMessage.style.display = 'block';
+                    rsvpMessage.style.background = '#d4edda';
+                    rsvpMessage.style.color = '#155724';
+                    rsvpMessage.textContent = 'Grazie! Il tuo RSVP è stato inviato con successo! 💌';
+                    rsvpForm.reset();
+                } else {
+                    throw new Error(json.message);
+                }
+            } catch (err) {
+                rsvpMessage.style.display = 'block';
+                rsvpMessage.style.background = '#f8d7da';
+                rsvpMessage.style.color = '#721c24';
+                rsvpMessage.textContent = 'Errore nell\'invio. Riprova o contattaci direttamente.';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Invia RSVP 💌';
+            }
+        });
+    }
+
     // --- Copy IBAN to Clipboard ---
     const copyIbanBtn = document.getElementById('copyIbanBtn');
     if(copyIbanBtn) {
